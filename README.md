@@ -1,111 +1,159 @@
-# Table Drummer v1.4
+<div align="center">
 
-A rhythm game you play by hitting a table with drumsticks, or by clapping. Your microphone is the controller.
+<img src="www/icons/icon-192.png" width="120" alt="Table Drummer icon">
 
-**Created by Shakir.**
+# Table Drummer
 
-- 20 original songs (10 free, 10 unlocked with coins), synthesized live in the game
-- Upload your own MP3 / WAV / FLAC: the game separates the drums, tracks every beat (follows tempo drift) and builds a curated one-button chart from the kick, snare, hi-hats and melody, plus a drum sheet. Or record your own chart and it snaps to the beat.
-- 29 "Learn music" rhythm lessons with real drum notation, plus free practice
-- 6 hearts per song; with no hearts left, 3 misses in a row ends the run. Paid continues, style ranks (D to SSS) and a high score table
-- Runs on Windows, macOS, Linux, Android and any modern browser
+**The rhythm game you play by hitting a table.**<br>
+Grab two drumsticks (or just clap). Your microphone is the controller.
 
----
+<br>
 
-## Project layout
+<a href="https://tabledrummer.netlify.app/"><img src="https://img.shields.io/badge/%E2%96%B6%20%20PLAY%20NOW-tabledrummer.netlify.app-ff4fae?style=for-the-badge&labelColor=1a0c3c" alt="Play now" height="42"></a>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/version-1.4-3ee8ff?style=flat-square&labelColor=1a0c3c" alt="Version 1.4">
+<img src="https://img.shields.io/badge/platforms-Web%20%C2%B7%20Android%20%C2%B7%20Windows-c64dff?style=flat-square&labelColor=1a0c3c" alt="Platforms">
+<img src="https://img.shields.io/badge/songs-20%20%2B%20your%20own-ffe36e?style=flat-square&labelColor=1a0c3c" alt="Songs">
+<img src="https://img.shields.io/badge/made%20by-Shakir-ff4fae?style=flat-square&labelColor=1a0c3c" alt="Made by Shakir">
+
+<br><br>
+
+<img src="assets/gameplay.jpg" width="860" alt="Gameplay: notes falling down a neon lane, a PERFECT hit, combo 41 and an SS style rank">
+
+</div>
+
+<br>
+
+## ▶ Play in 10 seconds
+
+1. Open **[tabledrummer.netlify.app](https://tabledrummer.netlify.app/)** in Chrome, Edge or Safari, on a phone or a PC.
+2. Allow the **microphone** when asked.
+3. Go to **Setup**, then tap **Auto-tune** and **Calibrate**. That takes about a minute, once.
+4. Pick a song and hit the table when each block lands on the line.
+
+> 🎧 **Use headphones.** Through speakers, the mic hears the music and plays by itself.<br>
+> 📱 **Install it like an app:** in your browser menu, choose **Add to Home screen**. It works offline after the first visit.<br>
+> 🙌 **No sticks?** Clap, tap the screen, or press <kbd>Space</kbd>.
+
+<br>
+
+## ✨ What's inside
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🥁 One input, real rhythms
+Every hit counts the same: sticks, claps or taps. The mic picks up each hit and judges it **Perfect**, **Good** or **OK** down to the millisecond.
+
+### 🎵 20 original songs
+Pop-punk, post-hardcore, J-rock, Afrobeat, amapiano, ska, dembow, surf rock and more, all **synthesized live** in the game. 10 are free, and 10 unlock with coins you earn by playing.
+
+### ⬆ Play your own music
+Upload an **MP3, WAV or FLAC**. The game separates the drums, follows the beat (even when a live band drifts) and builds a one-button chart from the kick, snare, hi-hats and melody. You get **Easy, Normal and Hard**, or you can record your own chart.
+
+</td>
+<td width="50%" valign="top">
+
+### 📖 Learn music
+**29 lessons** with real drum notation that scrolls as you play: quarter notes to 16ths, triplets, swing, syncopation, clave, Afrobeats 3-3-2 and breakdowns. Earn up to ★★★ per lesson, or use **Free practice** to train your timing.
+
+### 🔥 Style and high scores
+Climb the style ranks from **D to SSS** while you play. There's a high score table with your player name, combos, 6 hearts per song, and coin-powered continues.
+
+### 🎨 Make it yours
+Neon, Sunset and Aurora color schemes, dark and light mode, and a hit sound of your choice (kick, snare, clap or tap). A sync code moves your progress to another device.
+
+</td>
+</tr>
+</table>
+
+<br>
+
+<div align="center">
+<img src="assets/menu.jpg" width="49%" alt="Song menu with free songs, uploads, coins and tabs">
+<img src="assets/learn.jpg" width="49%" alt="Learn music hub with lessons and drum notation">
+</div>
+
+<br>
+
+## 📦 Download
+
+| Platform | How to get it |
+|---|---|
+| 🌐 **Any browser** | Play at **[tabledrummer.netlify.app](https://tabledrummer.netlify.app/)** |
+| 🤖 **Android** | `TableDrummer.apk` from **[Releases](../../releases)**. Allow *Install unknown apps* when asked. |
+| 🪟 **Windows** | `Table Drummer Setup.exe` (installer) or the portable `.exe` from **[Releases](../../releases)**. If Windows warns you, click *More info → Run anyway*. |
+
+The apps are built automatically by GitHub Actions: open the **Actions** tab, then **Build apps** → **Run workflow**.
+
+<br>
+
+## 🛠 Build it yourself
+
+<details>
+<summary><b>Project structure</b></summary>
 
 ```
 table-drummer/
-├─ www/                      ← the whole game (this is all a web host needs)
-│  ├─ index.html             ← the game itself
-│  ├─ manifest.webmanifest   ← makes it installable as an app
-│  ├─ sw.js                  ← lets it run offline
-│  └─ icons/                 ← app icons
-├─ electron/main.js          ← PC app (Windows / macOS / Linux)
-├─ capacitor.config.json     ← Android app settings
-├─ scripts/android-permissions.js
-└─ package.json
+├─ www/                     the whole game (a single index.html) + icons, manifest, offline support
+├─ electron/main.js         Windows / macOS / Linux desktop app
+├─ scripts/                 adds the microphone permission to the Android app
+├─ capacitor.config.json    Android app settings
+├─ package.json             build scripts
+└─ .github/workflows/       automatic app builds and website publishing
 ```
+</details>
 
-## 0. Play it right now
+<details>
+<summary><b>Android app (Android Studio)</b></summary>
 
-Double-click `www/index.html`. It opens in Chrome or Edge and works straight away.
-
----
-
-## 1. Publish on the web (easiest, and works on Android and PC)
-
-The microphone only works on **https** pages, so use a host that gives you https for free.
-
-**GitHub Pages**
-1. Create a GitHub repository and upload the contents of the `www` folder.
-2. In the repository, open **Settings → Pages**, set **Source** to your main branch, and save.
-3. After a minute your game is live at `https://<your-name>.github.io/<repo>/`.
-
-**Netlify** (no account setup needed): go to app.netlify.com/drop and drag the `www` folder onto the page.
-
-**Install it like an app.** Open the link, then:
-- **Android (Chrome):** menu ⋮ → **Add to Home screen / Install app**
-- **PC (Chrome or Edge):** click the install icon in the address bar
-
-It then opens full screen, has its own icon, and works offline after the first visit.
-
-> **itch.io:** itch.io runs HTML games inside an embedded frame, which can block the microphone. If you publish there, also link to your GitHub Pages version, or upload the PC build below.
-
----
-
-## 2. Android app (Google Play)
-
-You need: **Node.js 20+**, **Android Studio** (it includes the Android SDK and Java).
+Requires Node.js 20+ and Android Studio.
 
 ```bash
-cd table-drummer
 npm install
-npm run android:add      # creates the android/ project and adds the microphone permission
-npm run android:open     # opens it in Android Studio
+npm run android:add      # creates the Android project and adds the mic permission
+npm run android:open     # opens it in Android Studio → ▶ Run, or Build → Generate Signed Bundle
 ```
+</details>
 
-In Android Studio:
-- **Test on your phone:** plug it in with USB debugging on, then press ▶ Run.
-- **Build for Google Play:** **Build → Generate Signed App Bundle / APK → Android App Bundle**. Create a keystore when asked, and keep it safe: you need the same key for every future update.
+<details>
+<summary><b>Windows / macOS / Linux app (Electron)</b></summary>
 
-Upload the `.aab` file in the **Google Play Console** (one-time $25 developer fee). The first time the game asks for the microphone, Android shows its normal permission prompt.
-
-**After you change the game:** copy the new `index.html` into `www/`, then run `npm run android:sync` and build again.
-
-App ID: `com.shakir.tabledrummer`. To change it, edit it in both `capacitor.config.json` and `package.json` **before** you run `android:add`.
-
----
-
-## 3. PC app (Windows, macOS, Linux)
-
-You need: **Node.js 20+**.
+Requires Node.js 20+.
 
 ```bash
-cd table-drummer
 npm install
-npm run pc               # runs the game as a desktop app
-npm run build:win        # makes dist/Table Drummer Setup 1.4.0.exe (+ a portable .exe)
+npm run pc               # run as a desktop app
+npm run build:win        # dist/Table Drummer Setup 1.4.0.exe + a portable .exe
 ```
+</details>
 
-Use `npm run build:mac` on a Mac, or `npm run build:linux` for an AppImage. In the desktop app, **F11** toggles full screen.
+<details>
+<summary><b>Host the website yourself</b></summary>
 
-You can sell or share the Windows installer on **itch.io** (upload the .exe), the **Microsoft Store**, or **Steam** (Steamworks). Windows may show a SmartScreen warning for unsigned apps. A code-signing certificate removes it.
+Upload the contents of `www/` to any static host with **https** (Netlify, GitHub Pages, Cloudflare Pages). The microphone only works on https pages.
+</details>
 
-**Microphone on Windows:** if no sound arrives, open **Settings → Privacy & security → Microphone** and turn on **Let desktop apps access your microphone**.
+<br>
+
+## 💡 Tips
+
+- **Notes feel late or early?** Run **Setup → Calibrate timing** again. Bluetooth headphones add delay, and calibration fixes it.
+- **Taps not heard?** Run **Auto-tune**, move the phone or mic closer to where you hit, or turn sensitivity up.
+- **Hard song?** Lower the **note speed** in Setup, or practise the rhythm in **Learn music** first.
+- **New phone?** Setup → **Copy sync code** on the old device, then **Enter sync code** on the new one.
+
+<br>
+
+<div align="center">
 
 ---
 
-## Updating the version
+**Created by [Shakir](https://github.com/shakirPYJV)** · Built with Web Audio and Canvas · All music is original
 
-The version appears in three places. Change all three together:
-- `www/index.html`: the `v1.4` label and the Credits tab
-- `www/sw.js`: `CACHE = 'table-drummer-v1.4'` (changing this makes installed copies update)
-- `package.json`: `"version"`
+<a href="https://tabledrummer.netlify.app/"><b>▶ Play Table Drummer</b></a>
 
-## Notes
-
-- Fonts load from Google Fonts when online. Offline, the game uses the device's own fonts.
-- Progress (coins, unlocked songs, lesson progress, high scores, player name) is saved on each device. To move it to another device, use Setup → Sync & backup (sync code or backup file).
-- Uploaded songs are stored in the browser's IndexedDB on that device only.
-- Coins are an in-game reward only. No real money is involved.
+</div>
