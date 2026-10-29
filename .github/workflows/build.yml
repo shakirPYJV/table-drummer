@@ -17,6 +17,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Use the game folder (www or docs)
+        shell: bash
+        run: |
+          if [ -d www ] && [ ! -d docs ]; then cp -r www docs; fi
+          if [ -d docs ] && [ ! -d www ]; then cp -r docs www; fi
       - run: npm install
       - run: npx electron-builder --win --publish never
       - uses: actions/upload-artifact@v4
@@ -35,6 +40,11 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
+      - name: Use the game folder (www or docs)
+        shell: bash
+        run: |
+          if [ -d www ] && [ ! -d docs ]; then cp -r www docs; fi
+          if [ -d docs ] && [ ! -d www ]; then cp -r docs www; fi
       - run: npm install
       - run: npx cap add android
       - run: node scripts/android-permissions.js
